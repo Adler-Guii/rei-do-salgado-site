@@ -208,12 +208,12 @@ a:focus-visible {
   font-weight: 600;
 }
 
-.site-menu > a:not(.nav-cta) {
+.site-menu > a:not(.nav-cta):not(.nav-business) {
   position: relative;
   padding: 18px 0;
 }
 
-.site-menu > a:not(.nav-cta)::after {
+.site-menu > a:not(.nav-cta):not(.nav-business)::after {
   content: "";
   position: absolute;
   inset: auto 0 10px;
@@ -231,6 +231,34 @@ a:focus-visible {
 
 .site-menu .is-active {
   color: var(--yellow);
+}
+
+.nav-business {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 9px 18px;
+  border: 2px solid var(--yellow);
+  border-radius: 999px;
+  color: var(--red-dark) !important;
+  background: var(--yellow);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 19px rgba(91, 0, 0, 0.22);
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.nav-business:hover,
+.site-menu .nav-business.is-active {
+  border-color: var(--white);
+  color: var(--red-dark) !important;
+  background: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(91, 0, 0, 0.28);
 }
 
 .nav-cta,
@@ -2938,6 +2966,18 @@ button.product-image {
     justify-content: flex-start;
   }
 
+  .site-menu .nav-business {
+    justify-content: flex-start;
+    color: var(--yellow) !important;
+    background: rgba(255, 192, 48, 0.12);
+    transform: none;
+  }
+
+  .site-menu .nav-business.is-active {
+    color: var(--red-dark) !important;
+    background: var(--yellow);
+  }
+
   .feature-grid,
   .product-grid {
     grid-template-columns: repeat(2, var(--product-card-width));
@@ -3930,6 +3970,75 @@ button.product-image {
   line-height: 1.1;
 }
 
+.delivery-opportunity {
+  padding: 34px 0 42px;
+  background: var(--paper);
+}
+
+.delivery-opportunity-banner {
+  position: relative;
+  display: flex;
+  min-height: 520px;
+  overflow: hidden;
+  align-items: center;
+  border: 1px solid rgba(128, 11, 15, 0.22);
+  border-radius: 30px;
+  background:
+    linear-gradient(90deg, rgba(75, 2, 7, 0.98) 0%, rgba(103, 5, 10, 0.93) 38%, rgba(103, 5, 10, 0.38) 65%, rgba(103, 5, 10, 0.03) 100%),
+    url("assets/banner-revenda.jpg") center center / cover no-repeat;
+  box-shadow: 0 28px 60px rgba(82, 14, 9, 0.22);
+}
+
+.delivery-opportunity-banner::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, transparent 62%, rgba(34, 0, 2, 0.28));
+}
+
+.delivery-opportunity-copy {
+  position: relative;
+  z-index: 1;
+  width: min(56%, 660px);
+  padding: 62px;
+  color: var(--white);
+}
+
+.delivery-opportunity-copy h2 {
+  max-width: 590px;
+  margin: 0;
+  font-family: "Denk One", "Arial Black", sans-serif;
+  font-size: clamp(48px, 4.7vw, 68px);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.delivery-opportunity-copy > p:not(.eyebrow) {
+  max-width: 590px;
+  margin: 23px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.delivery-opportunity-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 28px 0 31px;
+}
+
+.delivery-opportunity-points span {
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .delivery-foundation {
   padding: 92px 0 100px;
 }
@@ -4045,6 +4154,44 @@ button.product-image {
   margin: 0;
   color: var(--gray);
   font-size: 13px;
+  line-height: 1.65;
+}
+
+.delivery-product-story {
+  padding: 22px 0 100px;
+  background: #fff3e5;
+}
+
+.delivery-product-story-banner {
+  display: flex;
+  min-height: 455px;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 30px;
+  background:
+    linear-gradient(90deg, rgba(54, 0, 4, 0.97) 0%, rgba(83, 3, 8, 0.9) 39%, rgba(83, 3, 8, 0.18) 69%, transparent 100%),
+    url("assets/banner-qualidade.jpg") center center / cover no-repeat;
+  box-shadow: 0 25px 55px rgba(73, 20, 8, 0.2);
+}
+
+.delivery-product-story-copy {
+  width: min(55%, 650px);
+  padding: 58px;
+  color: var(--white);
+}
+
+.delivery-product-story-copy h2 {
+  margin: 0;
+  font-family: "Denk One", "Arial Black", sans-serif;
+  font-size: clamp(44px, 4.4vw, 63px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.delivery-product-story-copy > p:not(.eyebrow) {
+  margin: 23px 0 30px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -4233,6 +4380,12 @@ button.product-image {
   .delivery-support-layout {
     gap: 52px;
   }
+
+  .delivery-opportunity-copy,
+  .delivery-product-story-copy {
+    width: 62%;
+    padding: 50px;
+  }
 }
 
 @media (max-width: 899px) {
@@ -4274,6 +4427,16 @@ button.product-image {
   .delivery-final-cta-inner .primary-button {
     width: fit-content;
   }
+
+  .delivery-opportunity-banner,
+  .delivery-product-story-banner {
+    background-position: 62% center;
+  }
+
+  .delivery-opportunity-copy,
+  .delivery-product-story-copy {
+    width: 70%;
+  }
 }
 
 @media (max-width: 599px) {
@@ -4312,6 +4475,55 @@ button.product-image {
 
   .delivery-hero-badge strong {
     font-size: 24px;
+  }
+
+  .delivery-opportunity {
+    padding: 22px 0 34px;
+  }
+
+  .delivery-opportunity-banner,
+  .delivery-product-story-banner {
+    min-height: auto;
+    background-position: 66% center;
+  }
+
+  .delivery-opportunity-banner {
+    background:
+      linear-gradient(90deg, rgba(67, 1, 6, 0.97) 0%, rgba(86, 3, 8, 0.93) 68%, rgba(86, 3, 8, 0.68) 100%),
+      url("assets/banner-revenda.jpg") 66% center / cover no-repeat;
+  }
+
+  .delivery-product-story-banner {
+    background:
+      linear-gradient(90deg, rgba(48, 0, 4, 0.97) 0%, rgba(65, 1, 6, 0.92) 70%, rgba(65, 1, 6, 0.62) 100%),
+      url("assets/banner-qualidade.jpg") 66% center / cover no-repeat;
+  }
+
+  .delivery-opportunity-copy,
+  .delivery-product-story-copy {
+    width: 100%;
+    padding: 42px 28px;
+  }
+
+  .delivery-opportunity-copy h2,
+  .delivery-product-story-copy h2 {
+    font-size: 41px;
+  }
+
+  .delivery-opportunity-copy > p:not(.eyebrow),
+  .delivery-product-story-copy > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+
+  .delivery-opportunity-points {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .delivery-opportunity-copy .primary-button,
+  .delivery-product-story-copy .outline-button {
+    width: 100%;
+    text-align: center;
   }
 
   .delivery-foundation,
