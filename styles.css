@@ -2736,12 +2736,12 @@ button.product-image {
   z-index: 90;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   min-height: 54px;
   padding: 10px 18px;
   border: 3px solid var(--white);
   border-radius: 999px;
-  background: #20b85a;
+  background: #25d366;
   color: var(--white);
   font-size: 13px;
   text-transform: uppercase;
@@ -2756,9 +2756,9 @@ button.product-image {
 
 .whatsapp-icon {
   display: block;
-  width: 28px;
-  height: 28px;
-  flex: 0 0 28px;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
   object-fit: contain;
 }
 
