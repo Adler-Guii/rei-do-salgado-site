@@ -2754,9 +2754,12 @@ button.product-image {
   box-shadow: 0 16px 32px rgba(0, 85, 37, 0.34);
 }
 
-.whatsapp-float span {
-  font-size: 24px;
-  line-height: 1;
+.whatsapp-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  object-fit: contain;
 }
 
 .image-dialog {
@@ -3573,8 +3576,10 @@ button.product-image {
   .whatsapp-float {
     right: 12px;
     bottom: 12px;
-    min-height: 48px;
-    padding: 8px 13px;
+    width: 54px;
+    min-height: 54px;
+    padding: 10px;
+    justify-content: center;
   }
 
   .whatsapp-float strong {
