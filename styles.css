@@ -637,6 +637,51 @@ a:focus-visible {
 .dock-deep { background: var(--red-dark); }
 .dock-yellow { background: #d98b00; }
 .dock-burnt { background: var(--burnt); }
+.dock-fritos { background: #6e1712; }
+
+.category-dock.subpage-dock {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  width: min(calc(100% - 64px), 1060px);
+}
+
+.fritos-banner {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  margin-top: 44px;
+  padding: clamp(24px, 4.5vw, 56px);
+  border-radius: 28px;
+  background: radial-gradient(ellipse at 95% 20%, #ab3217, transparent 65%), #60110d;
+  color: var(--white);
+}
+
+.fritos-banner .eyebrow {
+  color: var(--yellow);
+}
+
+.fritos-banner h2 {
+  margin: 0;
+  font: 400 clamp(30px, 4vw, 52px)/1.07 "Denk One", "Arial Black", sans-serif;
+}
+
+.fritos-banner a {
+  margin-top: 6px;
+}
+
+.fritos-banner-art {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(6px, 1.2vw, 14px);
+}
+
+.fritos-banner-art img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(34, 0, 0, 0.26);
+}
 
 .about-intro {
   position: relative;
@@ -1971,6 +2016,33 @@ a:focus-visible {
   justify-content: center;
 }
 
+.fritos-catalog {
+  background: #fff4e7;
+}
+
+.fritos-intro {
+  margin: 20px 0 0;
+  color: var(--gray);
+}
+
+.product-grid.fritos-grid {
+  grid-template-columns: repeat(3, var(--product-card-width));
+}
+
+.fritos-grid .product-image {
+  aspect-ratio: 4 / 5;
+}
+
+.fritos-grid .product-image:hover img,
+.fritos-grid .product-image:focus-visible img {
+  transform: none;
+}
+
+.fritos-contact {
+  margin-top: 56px;
+  text-align: center;
+}
+
 .feature-card,
 .product-card {
   position: relative;
@@ -2906,6 +2978,15 @@ button.product-image {
 }
 
 @media (max-width: 1199px) {
+  .category-dock.subpage-dock {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-radius: 30px;
+  }
+
+  .product-grid.fritos-grid {
+    grid-template-columns: repeat(2, var(--product-card-width));
+  }
+
   :root {
     --header-height: 125px;
   }
@@ -3073,6 +3154,20 @@ button.product-image {
 }
 
 @media (max-width: 767px) {
+  .category-dock.subpage-dock {
+    width: calc(100% - 20px);
+  }
+
+  .fritos-banner {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 28px;
+  }
+
+  .product-grid.fritos-grid {
+    grid-template-columns: var(--product-card-width);
+  }
+
   :root {
     --header-height: 81px;
   }

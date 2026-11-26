@@ -83,6 +83,19 @@ const catalog = {
       },
     ],
   },
+  fritos: {
+    tabs: ["Todos", "Coxinha", "Bolinha", "Kibe", "Risoles"],
+    description: "Já frito e congelado. Aqueça conforme as instruções da embalagem.",
+    tag: "400 g",
+    products: [
+      { title: "Bolinha de Queijo", kind: "Bolinha", image: "assets/fritos-400g-bolinha-queijo.jpg" },
+      { title: "Coxinha de Frango", kind: "Coxinha", image: "assets/fritos-400g-coxinha-frango.jpg" },
+      { title: "Kibe com Queijo", kind: "Kibe", image: "assets/fritos-400g-kibe-queijo.jpg" },
+      { title: "Risoles de Carne", kind: "Risoles", image: "assets/fritos-400g-risoles-carne.jpg" },
+      { title: "Risoles de Pizza", kind: "Risoles", image: "assets/fritos-400g-risoles-pizza.jpg" },
+      { title: "Risoles de Calabresa", kind: "Risoles", image: "assets/fritos-400g-risoles-calabresa.jpg" },
+    ],
+  },
   churros: {
     tabs: ["Todos", "Doce de Leite", "Chocolate"],
     products: [
@@ -145,7 +158,7 @@ function featureCard(item) {
   `;
 }
 
-function productCard(item) {
+function productCard(item, group) {
   const imageClass = ["product-image", item.package ? "is-package" : "", item.gallery ? "has-gallery" : ""]
     .filter(Boolean)
     .join(" ");
@@ -158,8 +171,8 @@ function productCard(item) {
       </button>
       <div class="card-panel">
         <h3>${item.title}</h3>
-        <p>${item.description ?? fallbackDescription}</p>
-        <span class="card-tag">Linha Rei do Salgado</span>
+        <p>${item.description ?? group.description ?? fallbackDescription}</p>
+        <span class="card-tag">${group.tag ?? "Linha Rei do Salgado"}</span>
       </div>
     </article>
   `;
@@ -168,7 +181,7 @@ function productCard(item) {
 const featureGrid = document.querySelector("[data-feature-grid]");
 if (featureGrid) featureGrid.innerHTML = catalog.features.map(featureCard).join("");
 
-for (const key of ["salgados", "pasteis", "churros", "empadas", "assados"]) {
+for (const key of ["salgados", "fritos", "pasteis", "churros", "empadas", "assados"]) {
   const group = catalog[key];
   const tabs = document.querySelector(`[data-tabs="${key}"]`);
   const grid = document.querySelector(`[data-grid="${key}"]`);
@@ -189,7 +202,7 @@ for (const key of ["salgados", "pasteis", "churros", "empadas", "assados"]) {
     )
     .join("");
 
-  grid.innerHTML = group.products.map(productCard).join("");
+  grid.innerHTML = group.products.map((item) => productCard(item, group)).join("");
 
   tabs.addEventListener("click", (event) => {
     const button = event.target.closest("[data-filter]");
