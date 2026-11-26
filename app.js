@@ -97,15 +97,8 @@ const catalog = {
     ],
   },
   churros: {
-    tabs: ["Todos", "Chocolate", "Nutella", "Doce de leite", "Chocolate branco", "Sensação", "Limoleite", "Pistache"],
+    tabs: ["Todos", "Nutella", "Chocolate branco", "Doce de leite", "Chocolate", "Sensação", "Limoleite", "Pistache"],
     products: [
-      {
-        title: "Churros de Chocolate",
-        kind: "Chocolate",
-        image: "assets/churros-foto-chocolate.webp",
-        description: "Massa de chocolate com recheio de chocolate ao leite.",
-        tag: "Chocolate ao leite",
-      },
       {
         title: "Churros de Nutella",
         kind: "Nutella",
@@ -114,16 +107,23 @@ const catalog = {
         tag: "Creme de avelã",
       },
       {
+        title: "Churros de Chocolate Branco",
+        kind: "Chocolate branco",
+        image: "assets/churros-foto-chocolate-branco.webp",
+        description: "Massa leve com recheio de chocolate branco.",
+      },
+      {
         title: "Churros de Doce de Leite",
         kind: "Doce de leite",
         image: "assets/churros-foto-doce-de-leite.webp",
         description: "Recheio cremoso de doce de leite.",
       },
       {
-        title: "Churros de Chocolate Branco",
-        kind: "Chocolate branco",
-        image: "assets/churros-foto-chocolate-branco.webp",
-        description: "Massa leve com recheio de chocolate branco.",
+        title: "Churros de Chocolate",
+        kind: "Chocolate",
+        image: "assets/churros-foto-chocolate.webp",
+        description: "Massa de chocolate com recheio de chocolate ao leite.",
+        tag: "Chocolate ao leite",
       },
       {
         title: "Churros Sensação",
