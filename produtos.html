@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Denk+One&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261126-4" />
-    <script src="app.js?v=20261126-3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261126-5" />
+    <script src="app.js?v=20261126-5" defer></script>
   </head>
   <body id="topo">
     <header class="site-header" data-header>
@@ -69,9 +69,15 @@
           </div>
           <div class="product-grid packaging-grid">
             <article class="product-card">
-              <button class="product-image packaging-preview packaging-preview-salgados" type="button" data-product-zoom data-packaging data-title="Salgados crus congelados" data-gallery="assets/embalagem-salgados-vermelha.webp|assets/embalagem-salgados-dourada.webp" data-gallery-labels="Arte vermelha · 1 kg|Arte dourada · 1 kg" aria-label="Ampliar as duas artes de salgados crus congelados">
-                <img class="packaging-label" src="assets/embalagem-salgados-vermelha-mini.webp" alt="" loading="lazy" />
-                <img class="packaging-label" src="assets/embalagem-salgados-dourada-mini.webp" alt="" loading="lazy" />
+              <button class="product-image packaging-preview packaging-preview-pair" type="button" data-product-zoom data-packaging data-title="Salgados crus congelados" data-gallery="assets/embalagem-salgados-vermelha.webp|assets/embalagem-salgados-dourada.webp" data-gallery-labels="Arte vermelha · 1 kg|Arte dourada · 1 kg" aria-label="Ampliar as duas artes de salgados crus congelados">
+                <span class="packaging-label packaging-label-red">
+                  <img src="assets/embalagem-salgados-vermelha-mini.webp" alt="" loading="lazy" />
+                  <span class="packaging-window" aria-hidden="true"></span>
+                </span>
+                <span class="packaging-label packaging-label-gold">
+                  <img src="assets/embalagem-salgados-dourada-mini.webp" alt="" loading="lazy" />
+                  <span class="packaging-window" aria-hidden="true"></span>
+                </span>
               </button>
               <div class="card-panel">
                 <h3>Salgados crus congelados</h3>
@@ -80,8 +86,11 @@
               </div>
             </article>
             <article class="product-card">
-              <button class="product-image packaging-preview packaging-preview-assados" type="button" data-product-zoom data-packaging data-title="Assados prontos" data-image="assets/embalagem-assados.webp" data-gallery-labels="Arte da embalagem · 800 g" aria-label="Ampliar a arte dos assados prontos">
-                <img class="packaging-label" src="assets/embalagem-assados-mini.webp" alt="" loading="lazy" />
+              <button class="product-image packaging-preview" type="button" data-product-zoom data-packaging data-title="Assados prontos" data-image="assets/embalagem-assados.webp" data-gallery-labels="Arte da embalagem · 800 g" aria-label="Ampliar a arte dos assados prontos">
+                <span class="packaging-label packaging-label-assados">
+                  <img src="assets/embalagem-assados-mini.webp" alt="" loading="lazy" />
+                  <span class="packaging-window" aria-hidden="true"></span>
+                </span>
               </button>
               <div class="card-panel">
                 <h3>Assados prontos</h3>
@@ -90,8 +99,11 @@
               </div>
             </article>
             <article class="product-card">
-              <button class="product-image packaging-preview packaging-preview-churros" type="button" data-product-zoom data-packaging data-title="Churros crus congelados" data-image="assets/embalagem-churros.webp" data-gallery-labels="Arte da embalagem · 3 kg" aria-label="Ampliar a arte dos churros crus congelados">
-                <img class="packaging-label" src="assets/embalagem-churros-mini.webp" alt="" loading="lazy" />
+              <button class="product-image packaging-preview" type="button" data-product-zoom data-packaging data-title="Churros crus congelados" data-image="assets/embalagem-churros.webp" data-gallery-labels="Arte da embalagem · 3 kg" aria-label="Ampliar a arte dos churros crus congelados">
+                <span class="packaging-label packaging-label-churros">
+                  <img src="assets/embalagem-churros-mini.webp" alt="" loading="lazy" />
+                  <span class="packaging-window" aria-hidden="true"></span>
+                </span>
               </button>
               <div class="card-panel">
                 <h3>Churros crus congelados</h3>
@@ -100,8 +112,11 @@
               </div>
             </article>
             <article class="product-card">
-              <button class="product-image packaging-preview packaging-preview-empadas" type="button" data-product-zoom data-packaging data-title="Empadas congeladas" data-image="assets/embalagem-empadas.webp" data-gallery-labels="Arte da embalagem · 1 kg" aria-label="Ampliar a arte das empadas congeladas">
-                <img class="packaging-label" src="assets/embalagem-empadas-mini.webp" alt="" loading="lazy" />
+              <button class="product-image packaging-preview" type="button" data-product-zoom data-packaging data-title="Empadas congeladas" data-image="assets/embalagem-empadas.webp" data-gallery-labels="Arte da embalagem · 1 kg" aria-label="Ampliar a arte das empadas congeladas">
+                <span class="packaging-label packaging-label-empadas">
+                  <img src="assets/embalagem-empadas-mini.webp" alt="" loading="lazy" />
+                  <span class="packaging-window" aria-hidden="true"></span>
+                </span>
               </button>
               <div class="card-panel">
                 <h3>Empadas congeladas</h3>
@@ -110,7 +125,7 @@
               </div>
             </article>
           </div>
-          <p class="packaging-note">Imagens ilustrativas de sugestões de apresentação após o preparo.</p>
+          <p class="packaging-note">Simulação ilustrativa da embalagem com o produto congelado. Toque para consultar a arte original.</p>
         </div>
       </section>
       <section class="statewide-band final-cta"><div class="shell statewide-inner"><div><p class="eyebrow">Consulte a disponibilidade</p><h2>Encontre as linhas certas para o seu negócio.</h2></div><a class="outline-button" href="https://wa.me/5519989094191?text=Ol%C3%A1%21%20Quero%20consultar%20os%20produtos%20dispon%C3%ADveis." target="_blank" rel="noopener">Falar com a equipe</a></div></section>
