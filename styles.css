@@ -2043,6 +2043,29 @@ a:focus-visible {
   text-align: center;
 }
 
+.churros-grid .product-image {
+  aspect-ratio: 5 / 4;
+  background: #f2e7db;
+}
+
+.churros-grid .product-image img {
+  object-fit: contain;
+}
+
+.churros-grid .product-image:hover img,
+.churros-grid .product-image:focus-visible img {
+  transform: none;
+}
+
+.churros-grid [data-kind="Chocolate"] .card-tag {
+  background: #48261e;
+}
+
+.churros-grid [data-kind="Nutella"] .card-tag {
+  background: #f3d29f;
+  color: #562e15;
+}
+
 .feature-card,
 .product-card {
   position: relative;

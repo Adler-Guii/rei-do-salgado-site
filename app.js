@@ -17,11 +17,11 @@ const catalog = {
       href: "produtos.html#pasteis",
     },
     {
-      title: "Mini Churros",
-      text: "A apresentação recebida confirma as opções doce de leite e chocolate.",
+      title: "Mini Churros Gourmet",
+      text: "Sete sabores, incluindo doce de leite, chocolate ao leite e creme de avelã.",
       image: "assets/linha-mini-churros-v2.jpg",
       alt: "Mini churros em primeiro plano com a embalagem oficial de doce de leite",
-      tag: "Linha doce",
+      tag: "7 sabores",
       href: "produtos.html#churros",
     },
     {
@@ -97,19 +97,54 @@ const catalog = {
     ],
   },
   churros: {
-    tabs: ["Todos", "Doce de Leite", "Chocolate"],
+    tabs: ["Todos", "Chocolate", "Nutella", "Doce de leite", "Chocolate branco", "Sensação", "Limoleite", "Pistache"],
     products: [
       {
-        title: "Churros Doce de Leite",
-        kind: "Doce de Leite",
-        image: "assets/produto-churros-doce-leite-v2.jpg",
-        description: "Mini churros com recheio de doce de leite e a embalagem oficial em destaque.",
+        title: "Churros de Chocolate",
+        kind: "Chocolate",
+        image: "assets/churros-gourmet-chocolate.webp",
+        description: "Massa de chocolate com recheio de chocolate ao leite.",
+        tag: "Chocolate ao leite",
       },
       {
-        title: "Churros Chocolate",
-        kind: "Chocolate",
-        image: "assets/produto-churros-chocolate-v2.jpg",
-        description: "Mini churros com recheio de chocolate e a embalagem oficial em destaque.",
+        title: "Churros de Nutella",
+        kind: "Nutella",
+        image: "assets/churros-gourmet-nutella.webp",
+        description: "Massa de chocolate com recheio de Nutella, creme de avelã.",
+        tag: "Creme de avelã",
+      },
+      {
+        title: "Churros de Doce de Leite",
+        kind: "Doce de leite",
+        image: "assets/churros-gourmet-doce-de-leite.webp",
+        description: "Recheio cremoso de doce de leite.",
+      },
+      {
+        title: "Churros de Chocolate Branco",
+        kind: "Chocolate branco",
+        image: "assets/churros-gourmet-chocolate-branco.webp",
+        description: "Massa leve com recheio de chocolate branco.",
+      },
+      {
+        title: "Churros Sensação",
+        kind: "Sensação",
+        image: "assets/churros-gourmet-sensacao.webp",
+        description: "Massa de chocolate com recheio de morango.",
+      },
+      {
+        title: "Churros Limoleite",
+        kind: "Limoleite",
+        image: "assets/churros-gourmet-limoleite.webp",
+        description: "Massa de limão com recheio de doce de leite.",
+      },
+      {
+        title: "Churros de Pistache",
+        kind: "Pistache",
+        image: "assets/churros-gourmet-embalagem.webp",
+        imageAlt: "Embalagem da linha de mini churros, com pistache na lista de sabores",
+        package: true,
+        description: "Mini churros sabor pistache.",
+        tag: "Arte da embalagem",
       },
     ],
   },
@@ -167,12 +202,12 @@ function productCard(item, group) {
   return `
     <article class="product-card" data-kind="${item.kind}">
       <button class="${imageClass}" type="button" data-product-zoom data-image="${item.image}" data-title="${item.title}"${galleryData} aria-label="${zoomLabel}">
-        <img src="${item.image}" alt="${item.title} Rei do Salgado">
+        <img src="${item.image}" alt="${item.imageAlt ?? `${item.title} Rei do Salgado`}" loading="lazy">
       </button>
       <div class="card-panel">
         <h3>${item.title}</h3>
         <p>${item.description ?? group.description ?? fallbackDescription}</p>
-        <span class="card-tag">${group.tag ?? "Linha Rei do Salgado"}</span>
+        <span class="card-tag">${item.tag ?? group.tag ?? "Linha Rei do Salgado"}</span>
       </div>
     </article>
   `;
