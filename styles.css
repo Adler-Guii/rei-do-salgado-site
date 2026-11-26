@@ -2104,10 +2104,10 @@ a:focus-visible {
   background-size: 200% 200%;
 }
 
-.packaging-preview-salgados { background-position: left top; }
-.packaging-preview-assados { background-position: right top; }
-.packaging-preview-churros { background-position: left bottom; }
-.packaging-preview-empadas { background-position: right bottom; }
+.packaging-grid .packaging-preview-salgados { background-position: left top; }
+.packaging-grid .packaging-preview-assados { background-position: right top; }
+.packaging-grid .packaging-preview-churros { background-position: left bottom; }
+.packaging-grid .packaging-preview-empadas { background-position: right bottom; }
 
 .packaging-grid .packaging-preview .packaging-label {
   position: absolute;
