@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Denk+One&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261126-2" />
-    <script src="app.js?v=20261126-2" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261126-3" />
+    <script src="app.js?v=20261126-3" defer></script>
   </head>
   <body id="topo">
     <header class="site-header" data-header>
@@ -28,6 +28,7 @@
       <nav class="category-dock shell subpage-dock" aria-label="Categorias de produtos">
         <a class="dock-pill dock-red" href="#salgados">Salgados</a><a class="dock-pill dock-orange" href="#pasteis">Mini Pastéis</a><a class="dock-pill dock-deep" href="#churros">Mini Churros</a><a class="dock-pill dock-yellow" href="#empadas">Mini Empadas</a><a class="dock-pill dock-burnt" href="#assados">Mini Assados</a>
         <a class="dock-pill dock-fritos" href="#fritos-400g">Fritos 400 g</a>
+        <a class="dock-pill dock-packaging" href="#embalagens">Embalagens</a>
       </nav>
       <section class="catalog-section alt-section" id="salgados"><div class="wide-shell"><div class="section-heading"><p class="section-kicker">Clássicos do Rei</p><h2>Mini Salgados</h2><span class="title-stroke"></span></div><div class="filter-tabs" data-tabs="salgados" role="tablist" aria-label="Filtrar mini salgados"></div><div class="product-grid" data-grid="salgados"></div></div></section>
       <section class="catalog-section fritos-catalog" id="fritos-400g" aria-labelledby="fritos-title">
@@ -59,10 +60,75 @@
       </section>
       <section class="catalog-section" id="empadas"><div class="wide-shell"><div class="section-heading"><p class="section-kicker">Praticidade no cardápio</p><h2>Mini Empadas</h2><span class="title-stroke"></span></div><div class="filter-tabs" data-tabs="empadas" role="tablist" aria-label="Filtrar mini empadas"></div><div class="product-grid product-grid-short" data-grid="empadas"></div></div></section>
       <section class="catalog-section alt-section" id="assados"><div class="wide-shell"><div class="section-heading"><p class="section-kicker">Linha atualizada</p><h2>Mini Assados</h2><span class="title-stroke"></span></div><div class="filter-tabs" data-tabs="assados" role="tablist" aria-label="Filtrar mini assados"></div><div class="product-grid" data-grid="assados"></div></div></section>
+      <section class="catalog-section packaging-section" id="embalagens" aria-labelledby="embalagens-title">
+        <div class="wide-shell">
+          <div class="section-heading">
+            <h2 id="embalagens-title">Embalagens do Rei</h2>
+            <span class="title-stroke" aria-hidden="true"></span>
+            <p class="packaging-intro">Confira o peso e o tipo de preparo de cada linha. Selecione uma embalagem para ampliar o rótulo original.</p>
+          </div>
+          <div class="product-grid packaging-grid">
+            <article class="product-card">
+              <button class="product-image packaging-preview packaging-preview-salgados" type="button" data-product-zoom data-packaging data-title="Salgados crus congelados" data-gallery="assets/embalagem-salgados-vermelha.webp|assets/embalagem-salgados-dourada.webp" data-gallery-labels="Arte vermelha · 1 kg|Arte dourada · 1 kg" aria-label="Ampliar as duas artes de salgados crus congelados">
+                <img class="packaging-label" src="assets/embalagem-salgados-vermelha-mini.webp" alt="" loading="lazy" />
+                <img class="packaging-label" src="assets/embalagem-salgados-dourada-mini.webp" alt="" loading="lazy" />
+              </button>
+              <div class="card-panel">
+                <h3>Salgados crus congelados</h3>
+                <p>Produto cru, para fritar ainda congelado conforme o rótulo. Confira as duas artes da linha.</p>
+                <span class="card-tag">1 kg</span>
+              </div>
+            </article>
+            <article class="product-card">
+              <button class="product-image packaging-preview packaging-preview-assados" type="button" data-product-zoom data-packaging data-title="Assados prontos" data-image="assets/embalagem-assados.webp" data-gallery-labels="Arte da embalagem · 800 g" aria-label="Ampliar a arte dos assados prontos">
+                <img class="packaging-label" src="assets/embalagem-assados-mini.webp" alt="" loading="lazy" />
+              </button>
+              <div class="card-panel">
+                <h3>Assados prontos</h3>
+                <p>Mini assados congelados que já vêm prontos. É só aquecer.</p>
+                <span class="card-tag">800 g</span>
+              </div>
+            </article>
+            <article class="product-card">
+              <button class="product-image packaging-preview packaging-preview-churros" type="button" data-product-zoom data-packaging data-title="Churros crus congelados" data-image="assets/embalagem-churros.webp" data-gallery-labels="Arte da embalagem · 3 kg" aria-label="Ampliar a arte dos churros crus congelados">
+                <img class="packaging-label" src="assets/embalagem-churros-mini.webp" alt="" loading="lazy" />
+              </button>
+              <div class="card-panel">
+                <h3>Churros crus congelados</h3>
+                <p>Para preparo. Frite ainda congelado conforme as instruções do rótulo.</p>
+                <span class="card-tag">3 kg</span>
+              </div>
+            </article>
+            <article class="product-card">
+              <button class="product-image packaging-preview packaging-preview-empadas" type="button" data-product-zoom data-packaging data-title="Empadas congeladas" data-image="assets/embalagem-empadas.webp" data-gallery-labels="Arte da embalagem · 1 kg" aria-label="Ampliar a arte das empadas congeladas">
+                <img class="packaging-label" src="assets/embalagem-empadas-mini.webp" alt="" loading="lazy" />
+              </button>
+              <div class="card-panel">
+                <h3>Empadas congeladas</h3>
+                <p>Mini empadas prontas. É só aquecer.</p>
+                <span class="card-tag">1 kg</span>
+              </div>
+            </article>
+          </div>
+          <p class="packaging-note">Imagens ilustrativas de sugestões de apresentação após o preparo.</p>
+        </div>
+      </section>
       <section class="statewide-band final-cta"><div class="shell statewide-inner"><div><p class="eyebrow">Consulte a disponibilidade</p><h2>Encontre as linhas certas para o seu negócio.</h2></div><a class="outline-button" href="https://wa.me/5519989094191?text=Ol%C3%A1%21%20Quero%20consultar%20os%20produtos%20dispon%C3%ADveis." target="_blank" rel="noopener">Falar com a equipe</a></div></section>
     </main>
     <footer class="site-footer"><nav class="footer-nav" aria-label="Navegação do rodapé"><div class="shell"><a href="sobre.html">Sobre Nós</a><a href="produtos.html">Produtos</a><a href="lojas.html">Nossas Lojas</a><a href="noticias.html">Notícias do Rei</a></div></nav><div class="footer-bottom"><div class="shell"><p>© <span data-year></span> Rei do Salgado.</p><a href="#topo">Voltar ao topo ↑</a></div></div></footer>
-    <dialog class="image-dialog" data-image-dialog><button class="dialog-close" type="button" aria-label="Fechar imagem ampliada" data-dialog-close>×</button><div class="dialog-stage"><button class="dialog-nav dialog-previous" type="button" aria-label="Imagem anterior" data-dialog-previous>‹</button><img src="" alt="" data-dialog-image /><button class="dialog-nav dialog-next" type="button" aria-label="Próxima imagem" data-dialog-next>›</button><span class="dialog-counter" data-dialog-counter></span></div><strong data-dialog-title></strong><span data-dialog-caption>Imagem ampliada</span><div class="dialog-thumbnails" data-dialog-thumbnails></div></dialog>
+    <dialog class="image-dialog" data-image-dialog>
+      <button class="dialog-close" type="button" aria-label="Fechar imagem ampliada" data-dialog-close>×</button>
+      <div class="dialog-stage">
+        <button class="dialog-nav dialog-previous" type="button" aria-label="Imagem anterior" data-dialog-previous>‹</button>
+        <img alt="" data-dialog-image />
+        <button class="dialog-nav dialog-next" type="button" aria-label="Próxima imagem" data-dialog-next>›</button>
+        <span class="dialog-counter" data-dialog-counter></span>
+      </div>
+      <strong data-dialog-title></strong>
+      <span data-dialog-caption>Imagem ampliada</span>
+      <div class="dialog-thumbnails" data-dialog-thumbnails></div>
+      <a class="packaging-link dialog-original" data-dialog-original target="_blank" rel="noopener" hidden>Abrir arte em tamanho original</a>
+    </dialog>
     <a class="whatsapp-float" href="https://wa.me/5519989094191" target="_blank" rel="noopener" aria-label="Falar com o Rei do Salgado pelo WhatsApp"><img class="whatsapp-icon" src="assets/whatsapp-official.svg" alt="" aria-hidden="true" /><strong>Fale com o Rei</strong></a>
   </body>
 </html>

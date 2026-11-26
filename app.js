@@ -335,6 +335,7 @@ if (imageDialog) {
   const dialogPrevious = imageDialog.querySelector("[data-dialog-previous]");
   const dialogNext = imageDialog.querySelector("[data-dialog-next]");
   const dialogThumbnails = imageDialog.querySelector("[data-dialog-thumbnails]");
+  const dialogOriginal = imageDialog.querySelector("[data-dialog-original]");
   let activeGallery = [];
   let activeGalleryLabels = [];
   let activeGalleryIndex = 0;
@@ -344,6 +345,7 @@ if (imageDialog) {
     activeGalleryIndex = (index + activeGallery.length) % activeGallery.length;
     const label = activeGalleryLabels[activeGalleryIndex] || "Imagem ampliada";
     dialogImage.src = activeGallery[activeGalleryIndex];
+    if (dialogOriginal && !dialogOriginal.hidden) dialogOriginal.href = activeGallery[activeGalleryIndex];
     dialogImage.alt = `${dialogTitle.textContent} — ${label}`;
     dialogCaption.textContent = label;
     dialogCounter.textContent = `${activeGalleryIndex + 1} de ${activeGallery.length}`;
@@ -364,6 +366,7 @@ if (imageDialog) {
     activeGalleryLabels = (trigger.dataset.galleryLabels || "Imagem ampliada").split("|");
     activeGalleryIndex = 0;
     dialogTitle.textContent = trigger.dataset.title;
+    if (dialogOriginal) dialogOriginal.hidden = !trigger.hasAttribute("data-packaging");
     dialogThumbnails.innerHTML = activeGallery
       .map(
         (image, index) => `
