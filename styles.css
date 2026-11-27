@@ -2083,13 +2083,43 @@ a:focus-visible {
   transform: none;
 }
 
-.churros-grid [data-kind="Chocolate"] .card-tag {
-  background: #48261e;
+.churros-grid .card-tag {
+  inline-size: min(100%, 184px);
+  min-height: 34px;
+  padding: 6px 12px;
+  background: var(--flavor-background);
+  color: var(--flavor-text, #26160f);
+  box-shadow: 0 6px 13px rgba(64, 37, 21, 0.18);
 }
 
-.churros-grid [data-kind="Nutella"] .card-tag {
-  background: #f3d29f;
-  color: #562e15;
+.churros-grid [data-kind="Nutella"] {
+  --flavor-background: #825337;
+  --flavor-text: var(--white);
+}
+
+.churros-grid [data-kind="Chocolate branco"] {
+  --flavor-background: #f4e1b8;
+}
+
+.churros-grid [data-kind="Doce de leite"] {
+  --flavor-background: #ca8c4c;
+}
+
+.churros-grid [data-kind="Chocolate"] {
+  --flavor-background: #48261e;
+  --flavor-text: var(--white);
+}
+
+.churros-grid [data-kind="Sensação"] {
+  --flavor-background: #e69cab;
+}
+
+.churros-grid [data-kind="Limoleite"] {
+  --flavor-background: linear-gradient(90deg, #a2af48 0 50%, #ca8c4c 50% 100%);
+}
+
+.churros-grid [data-kind="Pistache"] {
+  --flavor-background: #909a53;
 }
 
 .packaging-section {

@@ -141,12 +141,14 @@ const catalog = {
         kind: "Chocolate branco",
         image: "assets/churros-foto-chocolate-branco.webp",
         description: "Massa leve com recheio de chocolate branco.",
+        tag: "Chocolate Branco",
       },
       {
         title: "Churros de Doce de Leite",
         kind: "Doce de leite",
         image: "assets/churros-foto-doce-de-leite.webp",
         description: "Recheio cremoso de doce de leite.",
+        tag: "Doce de Leite",
       },
       {
         title: "Churros de Chocolate",
@@ -160,12 +162,14 @@ const catalog = {
         kind: "Sensação",
         image: "assets/churros-foto-sensacao.webp",
         description: "Massa de chocolate com recheio de morango.",
+        tag: "Sensação",
       },
       {
         title: "Churros Limoleite",
         kind: "Limoleite",
         image: "assets/churros-foto-limoleite.webp",
         description: "Massa de limão com recheio de doce de leite.",
+        tag: "Limoleite",
       },
       {
         title: "Churros de Pistache",
