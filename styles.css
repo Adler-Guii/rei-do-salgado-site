@@ -2050,6 +2050,21 @@ a:focus-visible {
 
 .fritos-grid .product-image {
   aspect-ratio: 4 / 5;
+  background: #f4ebe0;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.fritos-grid .product-image img {
+  object-fit: contain;
+}
+
+.fritos-grid :is([data-kind="Bolinha"], [data-kind="Coxinha"], [data-kind="Kibe"]) .product-image img {
+  object-fit: cover;
+}
+
+.fritos-grid .product-image:is(:hover, :focus-visible) {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 28px rgba(75, 28, 16, 0.23);
 }
 
 .fritos-grid .product-image:hover img,
@@ -2359,6 +2374,23 @@ button.product-image {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   box-shadow: 0 6px 13px rgba(166, 24, 23, 0.2);
+}
+
+button.card-tag {
+  border: 0;
+  font-family: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+button.card-tag:is(:hover, :focus-visible) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(64, 37, 21, 0.25);
+}
+
+button.card-tag:active {
+  transform: translateY(0);
 }
 
 .filter-tabs {

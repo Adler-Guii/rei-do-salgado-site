@@ -87,42 +87,37 @@ const catalog = {
     tabs: ["Todos", "Coxinha", "Bolinha", "Kibe", "Risoles"],
     description: "Já frito e congelado. Aqueça conforme as instruções da embalagem.",
     tag: "400 g",
+    packagingArtwork: true,
     products: [
       {
         title: "Bolinha de Queijo",
         kind: "Bolinha",
-        image: "assets/fritos-foto-bolinha-queijo.webp",
-        packageImage: "assets/fritos-400g-bolinha-queijo.jpg",
+        image: "assets/fritos-400g-bolinha-queijo.jpg",
       },
       {
         title: "Coxinha de Frango",
         kind: "Coxinha",
-        image: "assets/fritos-foto-coxinha-frango.webp",
-        packageImage: "assets/fritos-400g-coxinha-frango.jpg",
+        image: "assets/fritos-400g-coxinha-frango.jpg",
       },
       {
         title: "Kibe com Queijo",
         kind: "Kibe",
-        image: "assets/fritos-foto-kibe-queijo.webp",
-        packageImage: "assets/fritos-400g-kibe-queijo.jpg",
+        image: "assets/fritos-400g-kibe-queijo.jpg",
       },
       {
         title: "Risoles de Carne",
         kind: "Risoles",
-        image: "assets/fritos-foto-risoles-carne.webp",
-        packageImage: "assets/fritos-400g-risoles-carne.jpg",
+        image: "assets/fritos-400g-risoles-carne.jpg",
       },
       {
         title: "Risoles de Pizza",
         kind: "Risoles",
-        image: "assets/fritos-foto-risoles-pizza.webp",
-        packageImage: "assets/fritos-400g-risoles-pizza.jpg",
+        image: "assets/fritos-400g-risoles-pizza.jpg",
       },
       {
         title: "Risoles de Calabresa",
         kind: "Risoles",
-        image: "assets/fritos-foto-risoles-calabresa.webp",
-        packageImage: "assets/fritos-400g-risoles-calabresa.jpg",
+        image: "assets/fritos-400g-risoles-calabresa.jpg",
       },
     ],
   },
@@ -226,26 +221,27 @@ function featureCard(item) {
 }
 
 function productCard(item, group) {
-  const gallery = item.packageImage ? [item.image, item.packageImage] : item.gallery;
-  const galleryLabels = item.packageImage ? "Sugestão de apresentação|Embalagem" : "Inteiro|Cortado|Embalagem";
+  const tag = item.tag ?? group.tag ?? "Linha Rei do Salgado";
   const imageClass = ["product-image", item.package ? "is-package" : "", item.gallery ? "has-gallery" : ""]
     .filter(Boolean)
     .join(" ");
-  const galleryData = gallery
-    ? ` data-gallery="${gallery.join("|")}" data-gallery-labels="${galleryLabels}"`
+  const galleryData = item.gallery
+    ? ` data-gallery="${item.gallery.join("|")}" data-gallery-labels="Inteiro|Cortado|Embalagem"`
     : "";
+  const packagingData = group.packagingArtwork ? ' data-packaging data-gallery-labels="Arte da embalagem"' : "";
   let zoomLabel = `Ampliar imagem de ${item.title}`;
   if (item.gallery) zoomLabel = `Ver galeria com ${item.gallery.length} fotos de ${item.title}`;
-  if (item.packageImage) zoomLabel = `Ver foto e embalagem de ${item.title}`;
+  if (group.packagingArtwork) zoomLabel = `Ampliar embalagem de ${item.title}`;
+  const imageAlt = item.imageAlt ?? `${group.packagingArtwork ? "Embalagem de " : ""}${item.title} Rei do Salgado`;
   return `
     <article class="product-card" data-kind="${item.kind}">
-      <button class="${imageClass}" type="button" data-product-zoom data-image="${item.image}" data-title="${item.title}"${galleryData} aria-label="${zoomLabel}">
-        <img src="${item.image}" alt="${item.imageAlt ?? `${item.title} Rei do Salgado`}" loading="lazy">
+      <button class="${imageClass}" type="button" data-product-zoom data-image="${item.image}" data-title="${item.title}"${galleryData}${packagingData} aria-label="${zoomLabel}">
+        <img src="${item.image}" alt="${imageAlt}" loading="lazy">
       </button>
       <div class="card-panel">
         <h3>${item.title}</h3>
         <p>${item.description ?? group.description ?? fallbackDescription}</p>
-        <span class="card-tag">${item.tag ?? group.tag ?? "Linha Rei do Salgado"}</span>
+        <button class="card-tag" type="button" data-card-zoom aria-label="${tag} — ${zoomLabel}">${tag}</button>
       </div>
     </article>
   `;
@@ -398,13 +394,16 @@ if (imageDialog) {
   };
 
   document.addEventListener("click", (event) => {
-    const trigger = event.target.closest("[data-product-zoom]");
-    if (!trigger) return;
-    activeGallery = (trigger.dataset.gallery || trigger.dataset.image).split("|").filter(Boolean);
-    activeGalleryLabels = (trigger.dataset.galleryLabels || "Imagem ampliada").split("|");
+    const trigger = event.target.closest("[data-product-zoom], [data-card-zoom]");
+    const preview = trigger?.hasAttribute("data-card-zoom")
+      ? trigger.closest(".product-card")?.querySelector("[data-product-zoom]")
+      : trigger;
+    if (!preview) return;
+    activeGallery = (preview.dataset.gallery || preview.dataset.image).split("|").filter(Boolean);
+    activeGalleryLabels = (preview.dataset.galleryLabels || "Imagem ampliada").split("|");
     activeGalleryIndex = 0;
-    dialogTitle.textContent = trigger.dataset.title;
-    if (dialogOriginal) dialogOriginal.hidden = !trigger.hasAttribute("data-packaging");
+    dialogTitle.textContent = preview.dataset.title;
+    if (dialogOriginal) dialogOriginal.hidden = !preview.hasAttribute("data-packaging");
     dialogThumbnails.innerHTML = activeGallery
       .map(
         (image, index) => `
