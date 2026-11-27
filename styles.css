@@ -2045,7 +2045,15 @@ a:focus-visible {
 }
 
 .product-grid.fritos-grid {
-  grid-template-columns: repeat(3, var(--product-card-width));
+  display: flex;
+  flex-wrap: wrap;
+  max-width: calc(3 * var(--product-card-width) + 36px);
+  margin-inline: auto;
+}
+
+.fritos-grid .product-card {
+  flex: 0 0 min(100%, var(--product-card-width));
+  height: auto;
 }
 
 .fritos-grid .product-image {
@@ -3203,7 +3211,7 @@ button.card-tag:active {
   }
 
   .product-grid.fritos-grid {
-    grid-template-columns: repeat(2, var(--product-card-width));
+    max-width: calc(2 * var(--product-card-width) + 32px);
   }
 
   :root {
@@ -3381,10 +3389,6 @@ button.card-tag:active {
     grid-template-columns: 1fr;
     gap: 22px;
     margin-top: 28px;
-  }
-
-  .product-grid.fritos-grid {
-    grid-template-columns: var(--product-card-width);
   }
 
   :root {
