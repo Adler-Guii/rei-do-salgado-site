@@ -2062,6 +2062,13 @@ a:focus-visible {
   text-align: center;
 }
 
+.fritos-note {
+  max-width: 68ch;
+  margin: 0 auto 18px;
+  color: var(--gray);
+  font-size: 14px;
+}
+
 .churros-grid .product-image {
   aspect-ratio: 5 / 4;
   background: #f2e7db;

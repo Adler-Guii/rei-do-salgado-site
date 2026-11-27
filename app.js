@@ -88,12 +88,42 @@ const catalog = {
     description: "Já frito e congelado. Aqueça conforme as instruções da embalagem.",
     tag: "400 g",
     products: [
-      { title: "Bolinha de Queijo", kind: "Bolinha", image: "assets/fritos-400g-bolinha-queijo.jpg" },
-      { title: "Coxinha de Frango", kind: "Coxinha", image: "assets/fritos-400g-coxinha-frango.jpg" },
-      { title: "Kibe com Queijo", kind: "Kibe", image: "assets/fritos-400g-kibe-queijo.jpg" },
-      { title: "Risoles de Carne", kind: "Risoles", image: "assets/fritos-400g-risoles-carne.jpg" },
-      { title: "Risoles de Pizza", kind: "Risoles", image: "assets/fritos-400g-risoles-pizza.jpg" },
-      { title: "Risoles de Calabresa", kind: "Risoles", image: "assets/fritos-400g-risoles-calabresa.jpg" },
+      {
+        title: "Bolinha de Queijo",
+        kind: "Bolinha",
+        image: "assets/fritos-foto-bolinha-queijo.webp",
+        packageImage: "assets/fritos-400g-bolinha-queijo.jpg",
+      },
+      {
+        title: "Coxinha de Frango",
+        kind: "Coxinha",
+        image: "assets/fritos-foto-coxinha-frango.webp",
+        packageImage: "assets/fritos-400g-coxinha-frango.jpg",
+      },
+      {
+        title: "Kibe com Queijo",
+        kind: "Kibe",
+        image: "assets/fritos-foto-kibe-queijo.webp",
+        packageImage: "assets/fritos-400g-kibe-queijo.jpg",
+      },
+      {
+        title: "Risoles de Carne",
+        kind: "Risoles",
+        image: "assets/fritos-foto-risoles-carne.webp",
+        packageImage: "assets/fritos-400g-risoles-carne.jpg",
+      },
+      {
+        title: "Risoles de Pizza",
+        kind: "Risoles",
+        image: "assets/fritos-foto-risoles-pizza.webp",
+        packageImage: "assets/fritos-400g-risoles-pizza.jpg",
+      },
+      {
+        title: "Risoles de Calabresa",
+        kind: "Risoles",
+        image: "assets/fritos-foto-risoles-calabresa.webp",
+        packageImage: "assets/fritos-400g-risoles-calabresa.jpg",
+      },
     ],
   },
   churros: {
@@ -192,11 +222,17 @@ function featureCard(item) {
 }
 
 function productCard(item, group) {
+  const gallery = item.packageImage ? [item.image, item.packageImage] : item.gallery;
+  const galleryLabels = item.packageImage ? "Sugestão de apresentação|Embalagem" : "Inteiro|Cortado|Embalagem";
   const imageClass = ["product-image", item.package ? "is-package" : "", item.gallery ? "has-gallery" : ""]
     .filter(Boolean)
     .join(" ");
-  const galleryData = item.gallery ? ` data-gallery="${item.gallery.join("|")}" data-gallery-labels="Inteiro|Cortado|Embalagem"` : "";
-  const zoomLabel = item.gallery ? `Ver galeria com 3 fotos de ${item.title}` : `Ampliar imagem de ${item.title}`;
+  const galleryData = gallery
+    ? ` data-gallery="${gallery.join("|")}" data-gallery-labels="${galleryLabels}"`
+    : "";
+  let zoomLabel = `Ampliar imagem de ${item.title}`;
+  if (item.gallery) zoomLabel = `Ver galeria com ${item.gallery.length} fotos de ${item.title}`;
+  if (item.packageImage) zoomLabel = `Ver foto e embalagem de ${item.title}`;
   return `
     <article class="product-card" data-kind="${item.kind}">
       <button class="${imageClass}" type="button" data-product-zoom data-image="${item.image}" data-title="${item.title}"${galleryData} aria-label="${zoomLabel}">
